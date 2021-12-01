@@ -1,0 +1,137 @@
+.header__image img{
+    width: 100%;
+    height: 500px;
+}
+
+.headerWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /*background-color: green;*/
+}
+
+.fullLogo {
+    display: flex;
+    justify-content: space-between;
+
+    width: 6.5%;
+}
+
+.logo img{
+    position: absolute;
+    left: 16px;
+    top: 14px;
+    width: 40px;
+    height: 40px;
+}
+
+.logo__name {
+    /*position: absolute;
+    left: 70px;
+    top: 22px;*/
+    color: white;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.headerList {
+    display: flex;
+    /*position: absolute;
+    right: 0px;
+    top: 0px;*/
+    list-style: none;
+    align-items: center;
+}
+
+.headerList .headerItem {
+    font-size: 17px;
+    font-style: -apple-system,BlinkMacSystemFont,segoe ui,roboto,oxygen,cantarell,helvetica neue,ubuntu,sans-serif;
+}
+
+.headerList .headerItem:last-child {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin-right: 12px;
+    margin-left: 16px;
+    background-color: rgb(5,160,129);
+    border-radius: 10%;
+    padding: 5px 10px 10px 10px;
+}
+
+.headerLink {
+    color: rgb(255, 255, 255);
+    margin: 18px;
+    text-decoration: none;
+}
+
+.searchForm {
+    margin: auto;
+    position: absolute;
+    top: 120px;
+    left: 620px;
+    width: 650px;
+    height: 57px;
+    padding: 10px;
+    border: none;
+}
+
+.elemContainer {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.elemContainer img {
+    width: 20px;
+    margin-right: -10px;
+}
+
+.search {
+    padding-left: 10px;
+    border: none;
+    width: 100%;
+    font-size: 17px;
+}
+
+.search:focus {
+    outline: none;
+}
+
+.formText {
+    margin-bottom: 15px;
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+}
+
+.suggestionsList {
+    display: flex;
+    list-style: none;
+    font-size: 14px;
+    padding: 0;
+    margin: 7px 0px;
+}
+
+.suggestionsList .suggestion:first-child {
+    color: white;
+    margin-right: 10px;
+}
+
+.suggestionLink {
+    color: grey;
+    text-decoration: none;
+    margin: 0px 3px;
+}
+
+.suggestionLink:hover {
+    color: white;
+}
+
+
+
