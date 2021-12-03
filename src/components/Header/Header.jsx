@@ -1,7 +1,15 @@
 import React from 'react';
 import s from './Header.module.css';
 
-const Header = () => {
+const Header = (props) => {
+
+  let state = props.suggestions;
+  //let sug = state.zalupa.map(s => {return s.name});
+  let sug = "";
+  (state.initialState === undefined) ?
+    alert("error") :
+    (sug = [state.initialState.zalupa].map(s => { return s.name }));
+
   return (
     <div className={s.header}>
       <div className={s.header__image}>
@@ -14,7 +22,7 @@ const Header = () => {
             <img href="#" src="https://www.drupal.org/files/project-images/pexels_logo_0.png" alt="logo"></img>
           </div>
           <div className={s.logo__name}>
-            Pexels
+            Pexels{sug}
           </div>
         </div>
         <div>
@@ -46,12 +54,12 @@ const Header = () => {
         <div>
           <ul className={s.suggestionsList}>
             <li className={s.suggestion}>Suggested:</li>
-            <li className={s.suggestion}><a href="#" className={s.suggestionLink}>forest,</a></li>
-            <li className={s.suggestion}><a href="#" className={s.suggestionLink}>desktop backgrounds,</a></li>
+            <li className={s.suggestion}><a href="#" className={s.suggestionLink}>forest,{props}</a></li>
+            <li className={s.suggestion}><a href="#" className={s.suggestionLink}>brooklyn,</a></li>
             <li className={s.suggestion}><a href="#" className={s.suggestionLink}>nature,</a></li>
             <li className={s.suggestion}><a href="#" className={s.suggestionLink}>flowers,</a></li>
             <li className={s.suggestion}><a href="#" className={s.suggestionLink}>sea,</a></li>
-            <li className={s.suggestion}><a href="#" className={s.suggestionLink}>cool wallpaper,</a></li>
+            <li className={s.suggestion}><a href="#" className={s.suggestionLink}>city,</a></li>
             <li className={s.suggestion}><a href="#" className={s.suggestionLink}>more</a></li>
           </ul>
         </div>

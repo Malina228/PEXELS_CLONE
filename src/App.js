@@ -1,11 +1,12 @@
 import React from 'react';
 import Header from "./components/Header/Header";
 import Gallery from "./components/Gallery/Gallery";
+import HeaderContainer from './components/Header/HeaderContainer';
 
-const App = () => {
+const App = (props) => {
   return (
     <div className="App">
-      <Header />
+      <HeaderContainer /* state={props.store} *//>
       <Gallery />
     </div>
   );
