@@ -6,7 +6,7 @@ import HeaderContainer from './components/Header/HeaderContainer';
 const App = (props) => {
   return (
     <div className="App">
-      <HeaderContainer /* state={props.store} *//>
+      <HeaderContainer /* state={props.store}  *//>
       <Gallery />
     </div>
   );

@@ -1,4 +1,4 @@
-import {useEffect, useRef} from "react";
+/* import {useEffect, useRef} from "react";
 
 export default function useScroll(parentRef, childRef, callback) {
     const observer = useRef();
@@ -22,4 +22,4 @@ export default function useScroll(parentRef, childRef, callback) {
             observer.current.unobserve(childRef.current)
         };
     }, [callback])
-};
+} */

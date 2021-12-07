@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import s from './Header.module.css';
+import Suggestion from './Suggestion/Suggestion';
+import Gallery from './../Gallery/Gallery';
+import fetchTodos from './../Gallery/Gallery';
 
 const Header = (props) => {
 
+  let sugArrSize = 39;
+  let randomSug = Math.floor(Math.random()*sugArrSize);
+
   let state = props.suggestions;
-  //let sug = state.zalupa.map(s => {return s.name});
-  let sug = "";
-  (state.initialState === undefined) ?
-    alert("error") :
-    (sug = [state.initialState.zalupa].map(s => { return s.name }));
+  let suggestion = state.suggestions.map(s => <Suggestion sug={s}/>);
+
+  const [value, setValue] = useState("");
+
+  const onChange = (e) => {
+    setValue(e.target.value);
+  }
 
   return (
+
     <div className={s.header}>
       <div className={s.header__image}>
         <img src="https://images.pexels.com/photos/2876511/pexels-photo-2876511.jpeg?auto=compress&bri=-5&crop=focalpoint&cs=tinysrgb&fit=crop&fp-y=0.6&h=500&sharp=10&w=2000" alt="header cover" />
@@ -22,7 +31,7 @@ const Header = (props) => {
             <img href="#" src="https://www.drupal.org/files/project-images/pexels_logo_0.png" alt="logo"></img>
           </div>
           <div className={s.logo__name}>
-            Pexels{sug}
+            Pexels
           </div>
         </div>
         <div>
@@ -45,22 +54,23 @@ const Header = (props) => {
           <tr>
             <td>
               <form className={s.searchF}>
-                <input className={s.search} type="text" placeholder="Search for free photos and videos" />
+                <input className={s.search} type="text" value={value} onChange={onChange} placeholder="Search for free photos and videos" />
               </form>
             </td>
-            <td><a href="#"><img src="https://static.thenounproject.com/png/105498-200.png"></img></a></td>
+            <td><button onClick={fetchTodos(1,1,value)}><a href="#"><img src="https://static.thenounproject.com/png/105498-200.png"></img></a></button></td>
           </tr>
         </table>
         <div>
           <ul className={s.suggestionsList}>
             <li className={s.suggestion}>Suggested:</li>
-            <li className={s.suggestion}><a href="#" className={s.suggestionLink}>forest,{props}</a></li>
-            <li className={s.suggestion}><a href="#" className={s.suggestionLink}>brooklyn,</a></li>
-            <li className={s.suggestion}><a href="#" className={s.suggestionLink}>nature,</a></li>
-            <li className={s.suggestion}><a href="#" className={s.suggestionLink}>flowers,</a></li>
-            <li className={s.suggestion}><a href="#" className={s.suggestionLink}>sea,</a></li>
-            <li className={s.suggestion}><a href="#" className={s.suggestionLink}>city,</a></li>
-            <li className={s.suggestion}><a href="#" className={s.suggestionLink}>more</a></li>
+            <li>{suggestion[randomSug]}</li>
+            <li>{suggestion[randomSug]}</li>
+            <li>{suggestion[randomSug]}</li>
+            <li>{suggestion[randomSug]}</li>
+            <li>{suggestion[randomSug]}</li>
+            <li>{suggestion[randomSug]}</li>
+            <li></li>
+
           </ul>
         </div>
       </div>
@@ -70,3 +80,5 @@ const Header = (props) => {
 }
 
 export default Header;
+
+//export default connect(mapStateToProps)(Header);
