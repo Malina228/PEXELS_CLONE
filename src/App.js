@@ -7,7 +7,7 @@ const App = (props) => {
   return (
     <div className="App">
       <HeaderContainer /* state={props.store}  *//>
-      <Gallery />
+      {/*<Gallery />*/}
     </div>
   );
 }

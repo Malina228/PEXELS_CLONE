@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
 import s from './Header.module.css';
 import Suggestion from './Suggestion/Suggestion';
-import Gallery from './../Gallery/Gallery';
-import fetchTodos from './../Gallery/Gallery';
+import React, { useState, useEffect, useRef } from 'react';
+import Request from "./../Gallery/Request";
 
 const Header = (props) => {
 
-  let sugArrSize = 39;
-  let randomSug = Math.floor(Math.random()*sugArrSize);
+  let newSearchElement = React.createRef();
 
-  let state = props.suggestions;
-  let suggestion = state.suggestions.map(s => <Suggestion sug={s}/>);
-
-  const [value, setValue] = useState("");
-
-  const onChange = (e) => {
-    setValue(e.target.value);
+  let searchTopic = () => {
+    props.searchTopic();
   }
+
+  let updateTopic = () => {
+    let text = newSearchElement.current.value;
+    props.updateTopic(text);
+    debugger;
+  }
+
+  
 
   return (
 
@@ -43,10 +44,7 @@ const Header = (props) => {
             <li className={s.headerItem}><a href="#" className={s.headerLink}>Join</a></li>
           </ul>
         </div>
-
-
       </div>
-
 
       <div className={s.searchForm}>
         <div className={s.formText}>The best free stock photos, royalty<br /> free images & videos shared by<br /> creators.</div>
@@ -54,26 +52,46 @@ const Header = (props) => {
           <tr>
             <td>
               <form className={s.searchF}>
-                <input className={s.search} type="text" value={value} onChange={onChange} placeholder="Search for free photos and videos" />
+                <input className={s.search} type="text" value={props.newSearchText.newSearchText} onChange={updateTopic} ref={newSearchElement} placeholder="Search for free photos and videos" />
               </form>
             </td>
-            <td><button onClick={fetchTodos(1,1,value)}><a href="#"><img src="https://static.thenounproject.com/png/105498-200.png"></img></a></button></td>
+            <td><button onClick={searchTopic}><a href="#"><img src="https://static.thenounproject.com/png/105498-200.png"></img></a></button></td>
           </tr>
         </table>
         <div>
           <ul className={s.suggestionsList}>
             <li className={s.suggestion}>Suggested:</li>
-            <li>{suggestion[randomSug]}</li>
-            <li>{suggestion[randomSug]}</li>
-            <li>{suggestion[randomSug]}</li>
-            <li>{suggestion[randomSug]}</li>
-            <li>{suggestion[randomSug]}</li>
-            <li>{suggestion[randomSug]}</li>
-            <li></li>
-
+            <li><Suggestion sug={props.suggestions.suggestions} afterWord={","} /></li>
+            <li><Suggestion sug={props.suggestions.suggestions} afterWord={","} /></li>
+            <li><Suggestion sug={props.suggestions.suggestions} afterWord={","} /></li>
+            <li><Suggestion sug={props.suggestions.suggestions} afterWord={","} /></li>
+            <li><Suggestion sug={props.suggestions.suggestions} afterWord={","} /></li>
+            <li><Suggestion sug={props.suggestions.suggestions} afterWord={","} /></li>
+            <li><Suggestion sug={props.suggestions.suggestions} afterWord={""} /></li>
           </ul>
         </div>
       </div>
+
+
+
+
+      <div className={s.main}>
+        <div className={s.mainMenuWrapper}>
+          <ul className={s.mainMenu}>
+            <li className={s.mainMenuItem}><a href="#" className={s.mainMenuLink}>Home</a></li>
+            <li className={s.mainMenuItem}><a href="#" className={s.mainMenuLink}>Discover</a></li>
+            <li className={s.mainMenuItem}><a href="#" className={s.mainMenuLink}>Videos</a></li>
+            <li className={s.mainMenuItem}><a href="#" className={s.mainMenuLink}>Leaderboard</a></li>
+            <li className={s.mainMenuItem}><a href="#" className={s.mainMenuLink}>Challenges</a></li>
+          </ul>
+        </div>
+        <hr />
+
+        <div className={s.gallery}>
+          <Request />
+        </div>
+      </div>
+
 
     </div>
   );

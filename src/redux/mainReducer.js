@@ -1,3 +1,6 @@
+const SEARCH_TOPIC = "SEARCH-TOPIC";
+const UPDATE_TOPIC = "UPDATE-TOPIC";
+
 let initialState = {
 
   suggestions: [
@@ -12,46 +15,64 @@ let initialState = {
     "rain",
     "new york",
     "street",
-    "Cat",
-    "Dogs",
-    "Animal",
+    "cat",
+    "dogs",
+    "animal",
     "frog",
-    "Horse",
-    "Pet",
-    "Bird",
-    "People",
-    "Woman",
+    "horse",
+    "pet",
+    "bird",
+    "people",
+    "woman",
     "fire",
-    "Husky",
+    "husky",
     "mountain",
-    "Architecture",
-    "Audi",
-    "Automotive",
-    "Car",
-    "Daylight",
-    "Fast",
-    "Glass",
-    "Luxury",
-    "Parked",
-    "Pavement",
-    "Photography",
-    "Red",
-    "Road",
-    "Street",
+    "architecture",
+    "audi",
+    "automotive",
+    "car",
+    "daylight",
+    "fast",
+    "glass",
+    "luxury",
+    "parked",
+    "pavement",
+    "photography",
+    "red",
+    "road",
+    "street",
     "ocean",
-    "Travel",
-    "Vehicle",
-    "Wheel"
-  ]
+    "travel",
+    "vehicle",
+    "wheel"
+  ],
+
+  newSearchText: ""
 
 };
 
 
 
 const mainReducer = (state = initialState, action) => {
-
-
-  return state;
+  switch (action.type) {
+    case SEARCH_TOPIC: {
+      let newTopic = state.newSearchText;
+      return newTopic;
+    }
+    case UPDATE_TOPIC: {
+      return {
+        ...state,
+        newSearchText: action.searchText
+      };
+      /*state.newPostText = action.postText;
+      return state;*/
+    }
+    default: return state;
+  }
 }
+
+export const searchTopicActionCreator = () => ({ type: SEARCH_TOPIC })
+
+export const updateTopicActionCreator = (text) => ({ type: UPDATE_TOPIC, searchText: text })
 
 export default mainReducer;

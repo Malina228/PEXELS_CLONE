@@ -16,8 +16,7 @@
 .fullLogo {
     display: flex;
     justify-content: space-between;
-
-    width: 6.5%;
+    width: 123px;
 }
 
 .logo img{
@@ -29,19 +28,15 @@
 }
 
 .logo__name {
-    /*position: absolute;
-    left: 70px;
-    top: 22px;*/
     color: white;
-    font-weight: bold;
+    font-weight: 600;
+    line-height: 1;
     font-size: 19px;
 }
 
 .headerList {
+    margin: 13px 3px;
     display: flex;
-    /*position: absolute;
-    right: 0px;
-    top: 0px;*/
     list-style: none;
     align-items: center;
 }
@@ -54,25 +49,27 @@
 .headerList .headerItem:last-child {
     width: 100%;
     height: 100%;
+    font-size: 17px;
     text-align: center;
     margin-right: 12px;
     margin-left: 16px;
     background-color: rgb(5,160,129);
-    border-radius: 10%;
-    padding: 5px 10px 10px 10px;
+    border-radius: 3px;
+    padding: 9px 13px 10px 10px;
+    font-weight: 600;
 }
 
 .headerLink {
     color: rgb(255, 255, 255);
-    margin: 18px;
+    margin: 0 16px;
     text-decoration: none;
 }
 
 .searchForm {
     margin: auto;
     position: absolute;
-    top: 120px;
-    left: 620px;
+    top: 117px;
+    left: 616px; 
     width: 650px;
     height: 57px;
     padding: 10px;
@@ -106,7 +103,7 @@
 .formText {
     margin-bottom: 15px;
     font-size: 36px;
-    font-weight: bold;
+    font-weight: 700;
     color: white;
 }
 
@@ -115,7 +112,7 @@
     list-style: none;
     font-size: 14px;
     padding: 0;
-    margin: 7px 0px;
+    margin: 10px 0px;
 }
 
 .suggestionsList .suggestion:first-child {
@@ -124,13 +121,99 @@
 }
 
 .suggestionLink {
-    color: grey;
+    color: #d3d3d3;
     text-decoration: none;
     margin: 0px 3px;
 }
 
 .suggestionLink:hover {
     color: white;
+}
+
+
+
+
+
+
+
+
+
+/*gallery*/
+
+.mainMenuWrapper {
+    margin-right: 55px;
+}
+
+.mainMenu {
+    display: block;
+    margin: 0 0;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+
+.mainMenu .mainMenuItem {
+    margin: 0 4px;
+    letter-spacing: 0.4px;
+    padding: 15.5px;
+    font-size: 17px;
+    font-style: -apple-system,BlinkMacSystemFont,segoe ui,roboto,oxygen,cantarell,helvetica neue,ubuntu,sans-serif;
+}
+
+.mainMenuLink {
+    position: relative;
+    font-weight: 500;
+    color: #5e5e5e;
+    text-decoration: none;
+}
+
+.mainMenuLink:focus {
+    color: #0064f9;
+}
+
+.mainMenuLink:hover {
+    color: #0064f9;
+}
+
+
+.mainMenuLink:focus:before {
+    transform: scaleX(1);
+}
+
+.mainMenuLink:before {
+    content: "";
+    bottom: -20px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    border-radius: 10px;
+    background-color: #0064f9;
+    transform: scaleX(0);
+}
+
+hr {
+    margin-top: 4px;
+    background-color: rgb(248, 245, 245);
+    border: none;
+    height: 2px;
+}
+
+.gallery {
+    background-color: rgb(255, 255, 255);
+    height: 5500px;
+}
+
+.loadmore{
+    display: inline-block;
+    margin-top:30px;
+    padding: 20px 50px;
+    background-color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: azure;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 

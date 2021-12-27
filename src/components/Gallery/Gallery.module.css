@@ -1,4 +1,4 @@
-.mainMenuWrapper {
+/*.mainMenuWrapper {
     margin-right: 55px;
 }
 
@@ -58,7 +58,6 @@ hr {
 }
 
 .gallery {
-    display: flex;
     background-color: rgb(255, 255, 255);
     height: 5500px;
 }
@@ -73,9 +72,4 @@ hr {
     color: azure;
     font-weight: 500;
     cursor: pointer;
-}
-
-
-
-
-
+}*/
